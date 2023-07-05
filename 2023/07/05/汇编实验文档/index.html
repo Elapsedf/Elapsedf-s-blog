@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>汇编实验文档 | Elapsedf</title><meta name="author" content="Elapsedf"><meta name="copyright" content="Elapsedf"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="使用方法：ctrl+f，输入你想查找的知识关键词 常量字符常量：用单引号’ ’括起来的ASCII字符，其值是该字符的ASCII代码值。 ’The 2X means 2 multiple X’ 符号常量：是用标识符定义的常量 PORTA EQU 80H 则指令 MOV AL，PORTA与指令MOV AL，80H等价 变量DB：定义字节（8位） DW：定义字（16位）  DB伪指令将按顺序为字符串中每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编实验文档">
+<meta property="og:url" content="http://elapsedf.cn/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="Elapsedf">
+<meta property="og:description" content="使用方法：ctrl+f，输入你想查找的知识关键词 常量字符常量：用单引号’ ’括起来的ASCII字符，其值是该字符的ASCII代码值。 ’The 2X means 2 multiple X’ 符号常量：是用标识符定义的常量 PORTA EQU 80H 则指令 MOV AL，PORTA与指令MOV AL，80H等价 变量DB：定义字节（8位） DW：定义字（16位）  DB伪指令将按顺序为字符串中每">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b">
+<meta property="article:published_time" content="2023-07-05T11:46:22.000Z">
+<meta property="article:modified_time" content="2023-07-05T11:46:58.938Z">
+<meta property="article:author" content="Elapsedf">
+<meta property="article:tag" content="微机原理">
+<meta property="article:tag" content="汇编语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://elapsedf.cn/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":25,"languages":{"author":"Author: Elapsedf","link":"Link: ","source":"Source: Elapsedf","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇编实验文档',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-05 19:46:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b')"><nav id="nav"><span id="blog-info"><a href="/" title="Elapsedf"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">汇编实验文档</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-07-05T11:46:22.000Z" title="Created 2023-07-05 19:46:22">2023-07-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-07-05T11:46:58.938Z" title="Updated 2023-07-05 19:46:58">2023-07-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>17min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇编实验文档"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>使用方法：ctrl+f，输入你想查找的知识关键词</strong></p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>字符常量：用单引号’ ’括起来的ASCII字符，其值是该字符的<strong>ASCII代码值</strong>。</p>
+<p>’The 2X means 2 multiple X’</p>
+<p>符号常量：是用<strong>标识符</strong>定义的常量</p>
+<p>PORTA EQU 80H</p>
+<p>则指令 <strong>MOV AL，PORTA</strong>与指令<strong>MOV AL，80H</strong>等价</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>DB：定义字节（8位）</p>
+<p>DW：定义字（16位）</p>
+<ul>
+<li><p>DB伪指令将按顺序为字符串中<strong>每一个字符</strong>或符号分配<strong>一个字节单元</strong>，存放它们的ASCII编码，</p>
+</li>
+<li><p>但DB以外的数据定义伪指令只允许定义<strong>最多两个字符</strong>的字符串，且按<strong>逆序存放</strong>在低地址开始的单元。</p>
+</li>
+</ul>
+<p><strong>注意：3个及其以上的字符，只能用DB定义。当字符串的长度不超过两个字符时可用DW定义。</strong></p>
+<p><code>SEGMENT</code>:变量的段地址</p>
+<p><code>OFFSET</code>:变量的偏移地址</p>
+<p>？：表示不预置确定的初值</p>
+<h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p>可以用于数值和地址。</p>
+<p>地址相减，同一段中两个地址相减，其值为两个地址之间字节单元的个数</p>
+<p>地址+整数&#x3D;另一个地址</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><strong>只能用于数值表达式，不能用于地址表达式</strong></p>
+<p>注意：逻辑运算是逐位计算</p>
+<ul>
+<li>AND</li>
+</ul>
+<p>可以用于清除一个或多个位</p>
+<p>假设 <strong>BL</strong> 寄存器包含 <strong>0011 1010</strong> 。如果需要将高位清除为 0，则使用 <strong>0FH</strong> 对其进行 <strong>与运算</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANDBL,  0FH  ; BL 设置为 0000 1010</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>OR</li>
+</ul>
+<p>OR 指令总是<strong>清除进位（CF）和溢出标志位（OF）</strong>，并根据目标操作数的值来修改<strong>符号标志位（SF）、零标志位（ZF）和奇偶标志位（PF）</strong>。比如，可以将一个数与它自身（或 0）进行 OR 运算，来获取该数值的某些信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">or al,al</span><br></pre></td></tr></table></figure>
+
+<p>下表给出了零标志位和符号标志位对 AL 内容的说明：</p>
+<table>
+<thead>
+<tr>
+<th>零标志位</th>
+<th>符号标志位</th>
+<th>AL 中的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清0</td>
+<td>清0</td>
+<td>大于0</td>
+</tr>
+<tr>
+<td>置1</td>
+<td>清0</td>
+<td>等于0</td>
+</tr>
+<tr>
+<td>清0</td>
+<td>置1</td>
+<td>小于0</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>XOR</p>
+</li>
+<li><p>TEST</p>
+</li>
+</ul>
+<p><strong>Test命令</strong>将两个操作数进行逻辑与运算，并根据运算结果设置相关的标志位。但是，Test命令的两个操作数<strong>不会</strong>被改变。运算结果在设置过相关标记位后会被丢弃。</p>
+<p><code>TEST AX,BX</code> 与<code>AND AX,BX</code>命令有相同效果，只是<strong>Test指令不改变AX和BX的内容</strong>，而<strong>AND指令会把结果保存到AX中</strong>。</p>
+<h3 id="取值运算符"><a href="#取值运算符" class="headerlink" title="取值运算符"></a>取值运算符</h3><p>NEAR 指令单元</p>
+<p>FAR 指令单元</p>
+<ol>
+<li>这个主要和两个指令有关call ret<br>call 一个near过程，只把<strong>偏移地址压入堆栈</strong>，过程返回时用retn返回<br>call一个far过程，把<strong>偏移地址和段地址入栈</strong>，过程返回时用retf返回<br>在过程中的ret指令根据near和far的不同，分别编译成retn和 retf<br>retn和retf的机器码是不同的，你也可以不定义过程，直接用retn和retf</li>
+</ol>
+<p>如果你的子程序和主程序在同一个代码段，则使用near，调用发生后，主程序堆栈中只压入<strong>ip</strong>值；<br>如果你的子程序和主程序不在一个代码段，则使用far，调用发生后，主程序堆栈中将压入<strong>cs、ip</strong>值；</p>
+<ol start="2">
+<li>near定义的标号表示段内近跳转，近调用的地址<br>far定义的标号表示段间远跳转，远调用的地址<br><strong>near的时候，地址是16位的，far的时候是32位的（段地址+偏移地址）</strong></li>
+</ol>
+<h1 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV AX, DATA</span><br><span class="line">MOV DS, AX</span><br></pre></td></tr></table></figure>
+
+<p>mov ax, data ;将伪段地址放入ax中，data不是指令，而是伪指令，实际上是一个动态的内存地址，<strong>要想运行，必须先将其放入到ds中</strong>，但是内存数不能放入段地址。所以</p>
+<p>mov ds,ax ;就是将段地址装入段寄存器，最终达到了段地址装入段寄存器的目的！</p>
+<p>在80X86中规定，<strong>内存数不可以直接装入段寄存器</strong>，所以才会有这样的一次中转！<br>datas不是指令字，而是伪指令，实际上你可以理解他为一个标签，将这个标签装入AX中，实际装入的就是<strong>数据段的首地址</strong>！</p>
+<p>指令与伪指令的区别在在于，<strong>指令是属性指令集（</strong>属于CPU的），而<strong>伪指令则是属于编译软件</strong>的，扫描后由<strong>编译软件进行的操作</strong>。</p>
+<h2 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h2><p>EQU：赋值伪指令</p>
+<p><code>ASSUME CS:CODE, DS:DATA</code></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40627648/article/details/84063124">(101条消息) 汇编语言——assume的作用_汇编assume_手写的从前66的博客-CSDN博客</a></p>
+<p>assume 的作用是<strong>关联段名与段寄存器</strong>。</p>
+<p>如果你在数据段中定义了变量名，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x   db  0</span><br></pre></td></tr></table></figure>
+
+<p>而你在代码中，需要直接使用这个变量名，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mov   al,  x</span><br></pre></td></tr></table></figure>
+
+<p>那么，汇编程序在汇编时，就会报告错误。</p>
+<p>因为，mov指令中遇到 x 这个变量名时，汇编程序<strong>不知道它要用哪个段寄存器作为段地址</strong>。</p>
+<p>所以：</p>
+<p>若要用变量名直接访问，或使用语句标号（比如你例子中的标号 start）就必须要在assume伪指令中<strong>将这些变量或标号所在段的段名，与段寄存器名关联</strong>，否则会出错。</p>
+<p>如果你不使用段中的变量名，可以不关联这个段的段名与寄存器。</p>
+<p>如果你访问变量时，都指定了段跨越前缀，关联也不是必须的。比如你可以用 <code>mov al, ds:x</code>访问变量 x 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV SI, OFFSET X	;将x的地址放到SI中</span><br><span class="line">MOV DI, OFFSET Z	;将z的地址放到DI中</span><br></pre></td></tr></table></figure>
+
+<p>基于无符号数比较的跳转</p>
+<h2 id="Mov指令"><a href="#Mov指令" class="headerlink" title="Mov指令"></a>Mov指令</h2><p><img src="https://img-blog.csdnimg.cn/20191220163237983.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvY2tMaXU=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191220163253241.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvY2tMaXU=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191220163325659.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvY2tMaXU=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p><strong>Notice</strong></p>
+<p><code>MOV AX，10-CX</code> 错误的，不能用数字直接减寄存器</p>
+<p>$代表当前地址</p>
+<p>若寄存器不够用，可以将之前的寄存器push进堆栈</p>
+<h2 id="跳转指令"><a href="#跳转指令" class="headerlink" title="跳转指令"></a>跳转指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">JE   ;等于则跳转			同JZ</span><br><span class="line">JNE  ;不等于则跳转		同JNZ</span><br><span class="line"></span><br><span class="line">JA   ;无符号大于则跳转</span><br><span class="line">JNA  ;无符号不大于则跳转</span><br><span class="line">JAE  ;无符号大于等于则跳转		同JNB</span><br><span class="line">JNAE ;无符号不大于等于则跳转	同JB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JB   ;无符号小于则跳转</span><br><span class="line">JNB  ;无符号不小于则跳转</span><br><span class="line">JBE  ;无符号小于等于则跳转		同JNA</span><br><span class="line">JNBE ;无符号不小于等于则跳转	同JA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JG   ;有符号大于则跳转</span><br><span class="line">JNG  ;有符号不大于则跳转</span><br><span class="line">JGE  ;有符号大于等于则跳转		同JNL</span><br><span class="line">JNGE ;有符号不大于等于则跳转	同JL</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JL   ;有符号小于则跳转</span><br><span class="line">JNL  ;有符号不小于则跳转</span><br><span class="line">JLE  ;有符号小于等于则跳转		同JNG</span><br><span class="line">JNLE ;有符号不小于等于则跳转	同JG</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JZ   ;为零则跳转</span><br><span class="line">JNZ  ;不为零则跳转</span><br><span class="line"></span><br><span class="line">JS   ;为负则跳转</span><br><span class="line">JNS  ;不为负则跳转</span><br><span class="line"></span><br><span class="line">JC   ;进位则跳转</span><br><span class="line">JNC  ;不进位则跳转</span><br><span class="line"></span><br><span class="line">JO   ;溢出则跳转</span><br><span class="line">JNO  ;不溢出则跳转</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JP</span><br><span class="line">;为偶则跳转</span><br><span class="line"></span><br><span class="line">JNP  ;不为偶则跳转</span><br><span class="line"></span><br><span class="line">JPE  ;奇偶位置位则跳转		同JP</span><br><span class="line"></span><br><span class="line">JPO  ;奇偶位复位则跳转		同JNP</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意有无符号！！</strong></p>
+<p><code>JL/JG</code>是用于有符号数的,<code>JB/JA</code>用于无符号数</p>
+<p>MOV AL, NUM ;AL&#x3D;19H<br>CMP AL, NUM + 1 ;19H-98H: ZF&#x3D;0, CF&#x3D;1, OF&#x3D;1; SF&#x3D;1</p>
+<p>JA … —–CF&#x3D;0 且 ZF&#x3D;0，不满足条件，不转移<br>JG … —–SF&#x3D;OF且 ZF&#x3D;0，满足条件，转移</p>
+<p>JA … —–大于转移，是针对无符号数的</p>
+<p>JG … —–大于转移，是针对有符号数的</p>
+<p>如果是无符号数，19H 就小于 98H。<br>如果是有符号数，19H 就大于 98H。因为 89H 是负数。</p>
+<p>ENDP 表示PROC所定义的过程结束. (end procedure)<br>ENDS 表示SEGMENT定义的段结束. (end segment)<br>END 程序结束.</p>
+<h2 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h2><p>逻辑移位:  SHL、SHR </p>
+<p>算术移位:  CAL、CAR</p>
+<p>汇编语言中 sal(算术左移指令）和shl（逻辑左移指令）指令的寻址方式、控制移位方式等都一样，区别其实只有一处：<br>SAL算术移位指令在执行时，实际上把<strong>操作数看成有符号数进行移位，最高位符号位移入CF，但本身保持原值</strong>；其余位顺序左移，<strong>次高位被舍弃。</strong></p>
+<p>SHL逻辑移位指令在执行时，实际上把操作数看成无符号数进行移位，所有位顺序左移，最高位移入CF。</p>
+<p>例子如下???</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV AX,8001H;(AX)=1000 0000 0000 0001B</span><br><span class="line">SAL AX,1 ;(AX)=1000 0000 0000 0010B</span><br><span class="line">MOV AX,8001H;(AX)=1000 0000 0000 0001B</span><br><span class="line">SHL AX,1 ;(AX)=0000 0000 0000 0010B</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="CPU指令"><a href="#CPU指令" class="headerlink" title="CPU指令"></a>CPU指令</h2><p>IN&#x2F;OUT指令</p>
+<p>汇编语言中，CPU对外设的操作通过专门的端口读写指令来完成；</p>
+<p>读端口用IN指令，写端口用OUT指令。<br>例子如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IN AL,21H；表示从21H端口读取一字节数据到AL</span><br><span class="line">IN AX,21H；表示从端口地址21H读取1字节数据到AL，从端口地址22H读取1字节到AH</span><br><span class="line">MOV DX,379H</span><br><span class="line">IN AL,DX ；从端口379H读取1字节到AL</span><br><span class="line">OUT 21H,AL；将AL的值写入21H端口</span><br><span class="line">OUT 21H,AX；将AX的值写入端口地址21H开始的连续两个字节。（port[21H]=AL,port[22h]=AH）</span><br><span class="line">MOV DX,378H</span><br><span class="line">OUT DX,AX ；将AH和AL分别写入端口379H和378H</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/486026771">从硬件角度理解什么是计算机端口 - 知乎 (zhihu.com)</a></p>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>CPU与外界传输信息的“中介”，物理上则是一块硬件，内部有寄存器，寄存器中存放与CPU和外设交换的信息，因此，CPU将这些寄存器当作端口访问</p>
+<p>因为这个硬件有地址线和CPU相连，因此CPU可以通过寻址的方式找到这些寄存器。</p>
+<p><strong>交换数据的过程</strong></p>
+<p>外设的输入不直接送入内存和CPU ，而是送入相关的<strong>接口芯片</strong>的端口中；（接口芯片装在接口卡和主板上）<br>CPU 向外设的输出也不是直接送入外设，而是先送入端口中，再由相关的芯片送到外设。</p>
+<h1 id="宏指令"><a href="#宏指令" class="headerlink" title="宏指令"></a>宏指令</h1><p>宏定义是指用一个<strong>标识符</strong>（宏名）来代替<strong>一组指令序列</strong></p>
+<p>宏功能的使用过程是：宏定义、宏调用、宏展开。</p>
+<p><strong>MACRO 与 ENDM</strong>必须成对出现，先定义后引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">;宏指令定义格式：</span><br><span class="line">宏指令名  MACRO  &lt;形参列表&gt;</span><br><span class="line">   汇编程序段(宏体)</span><br><span class="line">ENDM</span><br><span class="line">;宏指令调用格式：</span><br><span class="line">宏指令名  [实参列表]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/DFsui/MarkDown-Image-Bed/202305292013202.png" alt="image-20230529201351138"></p>
+<h1 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h1><h2 id="加法与减法指令"><a href="#加法与减法指令" class="headerlink" title="加法与减法指令"></a>加法与减法指令</h2><p>不带进位加&#x2F;减法指令：ADD，SUB</p>
+<p>带进位加&#x2F;减法指令：ADC，SBB</p>
+<p>自增&#x2F;减：INC，DEG</p>
+<p>取负：NEG</p>
+<p>DAA</p>
+<p>DAS</p>
+<h1 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h1><p>LEA与OFFSET</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Baoli1008/article/details/46691497">(101条消息) 汇编语言LEA和OFFSET区别_汇编offset和lea区别_Baoli1008的博客-CSDN博客</a></p>
+<p>Load Effective Address，即装入有效地址的意思，它的操作数就是地址；</p>
+<p>lea  是机器指令，offset  是伪指令。	</p>
+<p>LEA BX, BUFFER;在实际执行时才会将变量buffer的地址放入bx </p>
+<p>MOV BX, OFFSET BUFFER ;在编译时就已经计算出buffer的地址为4300(假设)，然后将上句替换为: mov bx,4300</p>
+<p>lea可以进行比较复杂的计算，比如lea  eax,[esi+ebx $\times$ 4]，把ebx的值*4，加上esi的值，存入eax中。<br>mov就不行了。</p>
+<p>OFFSET只能取得用”<strong>数据定义伪指令</strong>“定义的<strong>变量</strong>的有效地址,<strong>不能取得一般操作数的有效地址</strong>(摘自80x86汇编语言程序设计教程)<br>MOV  BX,OFFSET  [BX+200]这句是错误的   应该用LEA  BX,[BX+200]</p>
+<h2 id="与ORG"><a href="#与ORG" class="headerlink" title="$与ORG"></a>$与ORG</h2><p><strong>地址计数器与对准伪指令</strong></p>
+<p><code>$</code>取当前地址</p>
+<p>用在指令：代表当前指令的<strong>首地址</strong>（偏移地址）</p>
+<p>用在数据段：表示<strong>当前变量的位置</strong>，即地址计算器的当前值</p>
+<p>此例中，ARRAY首地址是0074，操作到<code>$+4</code>时，该值为0078+4&#x3D;7C，即存入的数据为<code>7C</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DFsui/MarkDown-Image-Bed/202305292008889.png" alt="image-20230529200805791"></p>
+<p><code>ORG</code>：移动地址指针伪指令，用于设置当前汇编地址计数器中的值</p>
+<p>格式：ORG 数值表达式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BUFFER  LABEL  BYTE		;建立8字节未初始化数据缓冲区</span><br><span class="line">ORG  $+8 				;等价于</span><br><span class="line">BUFFER  DB  8  DUP(?)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h1><p>一般分为顺序结构，选择结构，循环结构，</p>
+<p>建议先画流程图</p>
+<h2 id="分支结构程序设计"><a href="#分支结构程序设计" class="headerlink" title="分支结构程序设计"></a>分支结构程序设计</h2><p>跳跃表法：</p>
+<ul>
+<li><p>用于分支较多的情况，即实现CASE结构；</p>
+</li>
+<li><p>对于分支比较少的情况IF_THEN_ELSE结构是最简便可行</p>
+</li>
+</ul>
+<p><strong>实现步骤</strong></p>
+<ul>
+<li><p>第一是构造跳转表；</p>
+</li>
+<li><p>第二是使用跳转地址、转移指令或关键字实现分支。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">DATA	SEGMENT</span><br><span class="line">DATATAB	DW  ROUTINE_1</span><br><span class="line">		DW  ROUTINE_2</span><br><span class="line">		DW  ROUTINE_3</span><br><span class="line">		DW  ROUTINE_4</span><br><span class="line">		DW  ROUTINE_5</span><br><span class="line">		DW  ROUTINE_6</span><br><span class="line">		DW  ROUTINE_7</span><br><span class="line">		DW  ROUTINE_8</span><br><span class="line">DATA	ENDS</span><br><span class="line">CODE	SEGMENT	</span><br><span class="line">MAIN	PROC  FAR			;?</span><br><span class="line">	ASSUME  CS: CODE，DS: DATA</span><br><span class="line">START: 	PUSH    DS		；保存DS</span><br><span class="line">	SUB       BX，BX		；BX清零</span><br><span class="line">	PUSH    BX			</span><br><span class="line">	MOV      BX，DATA</span><br><span class="line">	MOV      DS，BX		；载入数据段地址</span><br><span class="line">	CMP      AL，0		</span><br><span class="line">	JE         CONT		；AL=0的情况</span><br><span class="line">	MOV      SI，0</span><br><span class="line">LP: 	SHR      AL，1		；逻辑右移1位</span><br><span class="line">	JNB       NOT_YET	；CF=0，不低于情况</span><br><span class="line">	JMP     DATATAB［SI］</span><br><span class="line">NOT_YET: 	ADD      SI，TYPE   BRANCH  TABLE</span><br><span class="line">	                    JMP      LP</span><br><span class="line">CONT: </span><br><span class="line">……</span><br><span class="line">ROUTINE_1:	………</span><br><span class="line">ROUTINE_2:	…………</span><br><span class="line">	RET</span><br><span class="line">MAIN	ENDP	;?</span><br><span class="line">CODE	ENDS</span><br><span class="line">END		START</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>如果有LOOP则CX会自动递减</p>
+<p>如果没有，则要手动<code>DEC CX</code></p>
+<h1 id="DOS表"><a href="#DOS表" class="headerlink" title="DOS表"></a>DOS表</h1><p><strong>表：DOS系统功能调INT 21H</strong></p>
+<p><strong>MOV AH，4CH</strong></p>
+<p>4C  带返回码结束  AL&#x3D;返回码</p>
+<p>返回码？</p>
+<table>
+<thead>
+<tr>
+<th>AH</th>
+<th>功能</th>
+<th>调用参数</th>
+<th>返回参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td>程序终止(同INT 20H)</td>
+<td>CS&#x3D;程序段前缀</td>
+<td></td>
+</tr>
+<tr>
+<td>01</td>
+<td>键盘输入并回显</td>
+<td></td>
+<td>AL&#x3D;输入字符</td>
+</tr>
+<tr>
+<td>02</td>
+<td>显示输出</td>
+<td>DL&#x3D;输出字符</td>
+<td></td>
+</tr>
+<tr>
+<td>03</td>
+<td>异步通迅输入</td>
+<td></td>
+<td>AL&#x3D;输入数据</td>
+</tr>
+<tr>
+<td>04</td>
+<td>异步通迅输出</td>
+<td>DL&#x3D;输出数据</td>
+<td></td>
+</tr>
+<tr>
+<td>05</td>
+<td>打印机输出</td>
+<td>DL&#x3D;输出字符</td>
+<td></td>
+</tr>
+<tr>
+<td>06</td>
+<td>直接控制台I&#x2F;O</td>
+<td>DL&#x3D;FF(输入) DL&#x3D;字符(输出)</td>
+<td>AL&#x3D;输入字符</td>
+</tr>
+<tr>
+<td>07</td>
+<td>键盘输入(无回显)</td>
+<td></td>
+<td>AL&#x3D;输入字符</td>
+</tr>
+<tr>
+<td>08</td>
+<td>键盘输入(无回显) 检测Ctrl-Break</td>
+<td></td>
+<td>AL&#x3D;输入字符</td>
+</tr>
+<tr>
+<td>09</td>
+<td>显示字符串</td>
+<td>DS:DX&#x3D;串地址 ‘$’结束字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>0A</td>
+<td>键盘输入到缓冲区</td>
+<td>DS:DX&#x3D;缓冲区首地址 (DS:DX)&#x3D;缓冲区最大字符数</td>
+<td>(DS:DX+1)&#x3D;实际输入的字符数</td>
+</tr>
+<tr>
+<td>0B</td>
+<td>检验键盘状态</td>
+<td></td>
+<td>AL&#x3D;00 有输入 AL&#x3D;FF 无输入</td>
+</tr>
+<tr>
+<td>0C</td>
+<td>清除输入缓冲区并 请求指定的输入功能</td>
+<td>AL&#x3D;输入功能号 (1,6,7,8,A)</td>
+<td></td>
+</tr>
+<tr>
+<td>0D</td>
+<td>磁盘复位</td>
+<td></td>
+<td>清除文件缓冲区</td>
+</tr>
+<tr>
+<td>0E</td>
+<td>指定当前缺省的磁盘驱动器</td>
+<td>DL&#x3D;驱动器号 0&#x3D;A,1&#x3D;B,…</td>
+<td>AL&#x3D;驱动器数</td>
+</tr>
+<tr>
+<td>0F</td>
+<td>打开文件</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 文件找到 AL&#x3D;FF 文件未找到</td>
+</tr>
+<tr>
+<td>10</td>
+<td>关闭文件</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 目录修改成功 AL&#x3D;FF 目录中未找到文件</td>
+</tr>
+<tr>
+<td>11</td>
+<td>查找第一个目录项</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 找到 AL&#x3D;FF 未找到</td>
+</tr>
+<tr>
+<td>12</td>
+<td>查找下一个目录项</td>
+<td>DS:DX&#x3D;FCB首地址 (文件中带有*或?)</td>
+<td>AL&#x3D;00 找到 AL&#x3D;FF 未找到</td>
+</tr>
+<tr>
+<td>13</td>
+<td>删除文件</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 删除成功 AL&#x3D;FF 未找到</td>
+</tr>
+<tr>
+<td>14</td>
+<td>顺序读</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 读成功  &#x3D;01 文件结束,记录中无数据  &#x3D;02 DTA空间不够  &#x3D;03 文件结束,记录不完整</td>
+</tr>
+<tr>
+<td>15</td>
+<td>顺序写</td>
+<td>DS:DX&#x3D;FCB首地址</td>
+<td>AL&#x3D;00 写成功  &#x3D;01 盘满  &#x3D;02 DTA空间不够</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>CS：Code Segment（代码段地址）</p>
+<p>DS：Data Segment（数据段地址）</p>
+<p>ES：Extra Segement（扩充数据，在DS不够放时用）</p>
+<p>SS：Stack Segment</p>
+<p>IP：</p>
+<p>SI：源变址寄存器，一般可用于存放变量地址</p>
+<p><code>BUFF DW 5,7,...</code></p>
+<p><code>LEA SI,BUFF</code></p>
+<h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102026504">计算机存储器 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27689785/article/details/82975575">(103条消息) 理解CPU&#x2F;寄存器&#x2F;内存之间的关系_cpu和寄存器的关系_山羊胡子Q的博客-CSDN博客</a></p>
+<p>计算机存储器可分为<strong>内部存储器</strong>（简称内存或主存）、<strong>CPU缓存</strong>和<strong>外部存储器（辅助存储器</strong>）。</p>
+<p><strong>内存</strong>是<strong>CPU能直接寻址的存储空间</strong>，由半导体器件制成。计算机内存的特点是<strong>访问速率快，容量小</strong>，价格高。</p>
+<p>我们平常使用的程序，如Windows操作系统、打字软件、游戏软件等，一般都是安装在硬盘等外存上的，但必须把它们<strong>调入内存中运行，才能真正使用其功能</strong>，我们平时输入一段文字，或玩一个游戏，其实都是在内存中进行的，数据产生后不断地由内存向外存进行刷写。就好比在一个书房里，存放书籍的书架和书柜相当于电脑的外存，而我们工作的办公桌就是内存。通常我们把要永久保存的、大量的数据存储在外存上，而把一些临时的或少量的数据和程序放在内存上，当然内存的好坏会直接影响电脑的运行速度。</p>
+<p><strong>Note：区分存储器与寄存器</strong></p>
+<p><strong>外部存储器</strong>是指处理内存和CPU以外的存储器。这种存储器的最大特点就是<strong>断电后仍能保存数据</strong>。除此之外还具有<strong>访问速率慢，容量大</strong>，价格相对较低的特点。常见的外存设备有：<strong>硬盘</strong>、软盘、光盘、U盘等。</p>
+<p>固态硬盘与移动硬盘</p>
+<p>CPU高速缓存（英语：CPU Cache，简称缓存）是用于<strong>减少处理器访问内存所需平均时间的部件。</strong>在金字塔式存储体系中它位于自顶向下的第二层，<strong>仅次于CPU寄存器</strong>。由静态存储芯片(SRAM)组成。其容量远小于内存，但<strong>速度却可以接近处理器的频率</strong>。当处理器发出内存访问请求时，会先<strong>查看缓存内是否有请求数据</strong>。如果存在（命中），则不经访问内存直接返回该数据；如果不存在（失效），则要先把内存中的相应数据载入缓存，再将其返回处理器。</p>
+<p><img src="https://img-blog.csdn.net/20181008233418214?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3Njg5Nzg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p>按照存储能力与电源的关系可以分为两类：</p>
+<p>易失性存储器和非易失行存储器。</p>
+<ul>
+<li><p>RAM</p>
+</li>
+<li><p>电源断电后，存储器中所存储的数据便会消失的存储器，临时数据存储介质。RAM分为：动态随机存取存储器和静态随机存取存储器	</p>
+<ul>
+<li>DRAM（动态随机存取存储器）</li>
+<li>SRAM（静态随机存取存储器）</li>
+</ul>
+</li>
+<li><p>ROM</p>
+</li>
+<li><p>闪存</p>
+</li>
+</ul>
+<h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><p>涉及的元件：</p>
+<p>SS：堆栈<strong>段寄存器</strong>，顾名思义，与DS对应，存放的是堆栈的段地址</p>
+<p>SP：堆栈指针寄存器，指出堆栈段中<strong>栈顶的偏移地址</strong></p>
+<p>BP：基址指针寄存器，指出要处理的数据在堆栈段中的<strong>起始地址</strong></p>
+<p><strong>堆栈必须按字操作</strong></p>
+<p>在子程序调用和中断处理后，需要保存通用寄存器的值，子程序返回时，恢复通用寄存器的值</p>
+<p>PUSH：SP-&#x3D;2；（SP+1：SP）&lt;-SRC</p>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ADDP	PROC  		;加法子程序,完成2位十进制数相加</span><br><span class="line">	PUSH	AX   	; 保护现场               </span><br><span class="line">	PUSH	BX                       </span><br><span class="line">	CLC 		;清除进位标志</span><br><span class="line">	MOV	BX，0</span><br><span class="line">AGAIN: 	MOV	AL，DAT1［BX］	;相加</span><br><span class="line">	ADC	AL，DAT2［BX］</span><br><span class="line">	DAA			;十进制调整</span><br><span class="line">	MOV	SUM［BX］，AL	;存结果</span><br><span class="line">	INC	BX		;修改下标</span><br><span class="line">	LOOP	AGAIN		;循环执行8次</span><br><span class="line">	ADC	SUM［BX］，0	;结果存在SUM为首地址的数据区？</span><br><span class="line">	POP	BX		; 恢复现场</span><br><span class="line">	POP	AX                  </span><br><span class="line">	RET			;返回主程序</span><br><span class="line">ADDP  	ENDP</span><br><span class="line">CODE  	ENDS</span><br><span class="line">         END		START</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="子程序设计"><a href="#子程序设计" class="headerlink" title="子程序设计"></a>子程序设计</h2><p><strong>①定义:  过程名</strong> <strong>PROC</strong> <strong>[NEAR&#x2F;FAR]</strong></p>
+<p>​                <strong>…</strong>  </p>
+<p>​                <strong>RET</strong></p>
+<p>​         <strong>过程名</strong> <strong>ENDP</strong></p>
+<p><strong>②调用:</strong>         <strong>CALL</strong> <strong>过程名</strong></p>
+<p><strong>NEAR类型</strong>为段内调用，即主子程序在同一个代码段内，NEAR可省略。</p>
+<p>FAR类型为段间调用，被其它代码段调用的过程要定义为<strong>FAR</strong>过程</p>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p><strong>两个字节数据相加，存放到一个结果单元中，并显示十六进制结果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CODE  SEGMENT    </span><br><span class="line">         ASSUME	   CS:CODE，DS:DATA         </span><br><span class="line">    START: MOV AX，DATA</span><br><span class="line">           MOV DS，AX</span><br><span class="line">           MOV AL，AD1	</span><br><span class="line">           ADD AL, AD2</span><br><span class="line">           MOV DL, AL</span><br><span class="line">           MOV SUM，AL           ;后面为显示所需</span><br><span class="line">           MOV BL, AL	</span><br><span class="line">           MOV CL,4</span><br><span class="line">           SHR AL,CL</span><br><span class="line">           AND AL,0FH	;清0高位，实际上可以不用</span><br><span class="line">           ADD AL, 30H	;与ascii码对应！0的ascii码为30，所以要加上30，如果要输出字母，则要加37</span><br><span class="line">           MOV DL,AL</span><br><span class="line">           MOV AH,2</span><br><span class="line">           INT 21H</span><br><span class="line">           MOV AL,BL</span><br><span class="line">           AND AL,0FH</span><br><span class="line">           ADD AL,30H</span><br><span class="line">           MOV DL,AL</span><br><span class="line">           MOV AH,2</span><br><span class="line">           INT 21H</span><br><span class="line">CODE  ENDS</span><br><span class="line">	      END START</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>A：是不是只有SI和DI能储存地址</p>
+<p>Q：不是，可以用BX等寄存器存地址，当寻址时</p>
+<p><code>MOV AX，[BX]</code>表示以BX内的数据为<strong>偏移地址</strong>，取出对应地址的<strong>数据</strong>，放入AX中</p>
+<p>此为寄存器<strong>间接寻址</strong>，如果指定的寄存器是<strong>BX，SI，DI</strong>，则操作数默认在<strong>数据段DS</strong>中，取DS作为该操作数的段地址</p>
+<p>如果指定寄存器是<strong>BP</strong>，则操作数默认在堆栈段，取<strong>SS寄存器</strong>的值作为操作数的段地址</p>
+<p>A：寄存器与存储器</p>
+<p>Q：AX，CX等为寄存器，存储器可以理解为数据段中的地址，需通过地址来访问！</p>
+<p>存储器的一个作用就是存储数据，<strong>解决寄存器不够的问题</strong>，让寄存器只是“暂时存放数据”！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://Elapsedf.cn">Elapsedf</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://elapsedf.cn/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/">http://elapsedf.cn/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理</a><a class="post-meta__tags" href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a></div><div class="post_share"><div class="social-share" data-image="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%8E%9F%E7%90%86%E6%96%87%E6%A1%A3/" title="汇编原理文档"><img class="cover" src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">汇编原理文档</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/05/%E5%BD%B1%E8%AF%84-%E2%80%98%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9%E2%80%99/" title="影评--‘消失的她’"><img class="cover" src="/img/%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9/OIP.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">影评--‘消失的她’</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/06/15/Emu8086-1/" title="Emu8086(1)"><img class="cover" src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-15</div><div class="title">Emu8086(1)</div></div></a></div><div><a href="/2023/06/15/Emu8086-2/" title="Emu8086(2)"><img class="cover" src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-15</div><div class="title">Emu8086(2)</div></div></a></div><div><a href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%8E%9F%E7%90%86%E6%96%87%E6%A1%A3/" title="汇编原理文档"><img class="cover" src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-05</div><div class="title">汇编原理文档</div></div></a></div><div><a href="/2023/06/15/Emu8086-3/" title="Emu8086(3)"><img class="cover" src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-15</div><div class="title">Emu8086(3)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Elapsedf</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Elapsedf"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Elapsedf" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/Elapsedf@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">运算符与表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">0.1.</span> <span class="toc-text">算数运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">0.2.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">0.3.</span> <span class="toc-text">取值运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">常见指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">伪指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mov%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">Mov指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">跳转指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">移位指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU%E6%8C%87%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">CPU指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">5.1.</span> <span class="toc-text">端口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8F%E6%8C%87%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">宏指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">算数运算指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E4%B8%8E%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">加法与减法指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80"><span class="toc-number"></span> <span class="toc-text">地址</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8EORG"><span class="toc-number">1.</span> <span class="toc-text">$与ORG</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number"></span> <span class="toc-text">程序设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">分支结构程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">循环</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DOS%E8%A1%A8"><span class="toc-number"></span> <span class="toc-text">DOS表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">存储器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E6%A0%88"><span class="toc-number"></span> <span class="toc-text">堆栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">子程序设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Example"><span class="toc-number"></span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">问题：</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%8E%9F%E7%90%86%E6%96%87%E6%A1%A3/" title="汇编原理文档"><img src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编原理文档"/></a><div class="content"><a class="title" href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%8E%9F%E7%90%86%E6%96%87%E6%A1%A3/" title="汇编原理文档">汇编原理文档</a><time datetime="2023-07-05T11:47:29.000Z" title="Created 2023-07-05 19:47:29">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/" title="汇编实验文档"><img src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编实验文档"/></a><div class="content"><a class="title" href="/2023/07/05/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A3/" title="汇编实验文档">汇编实验文档</a><time datetime="2023-07-05T11:46:22.000Z" title="Created 2023-07-05 19:46:22">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/05/%E5%BD%B1%E8%AF%84-%E2%80%98%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9%E2%80%99/" title="影评--‘消失的她’"><img src="/img/%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9/OIP.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="影评--‘消失的她’"/></a><div class="content"><a class="title" href="/2023/07/05/%E5%BD%B1%E8%AF%84-%E2%80%98%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9%E2%80%99/" title="影评--‘消失的她’">影评--‘消失的她’</a><time datetime="2023-07-05T11:37:51.000Z" title="Created 2023-07-05 19:37:51">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/" title="网络抓包与协议分析"><img src="https://www.freecodecamp.org/news/content/images/2020/08/wireshark-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络抓包与协议分析"/></a><div class="content"><a class="title" href="/2023/06/20/%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/" title="网络抓包与协议分析">网络抓包与协议分析</a><time datetime="2023-06-20T13:38:56.000Z" title="Created 2023-06-20 21:38:56">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/15/Emu8086-3/" title="Emu8086(3)"><img src="https://picx.zhimg.com/v2-f15b73648ac754af2e4e5daceaa48fa6_720w.jpg?source=172ae18b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emu8086(3)"/></a><div class="content"><a class="title" href="/2023/06/15/Emu8086-3/" title="Emu8086(3)">Emu8086(3)</a><time datetime="2023-06-15T15:12:00.000Z" title="Created 2023-06-15 23:12:00">2023-06-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Elapsedf</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>备案号：粤ICP备2023063740号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '8816059000c4c8c811ca',
+      clientSecret: '5f814dd3feb72762925b6fcc7a24a11063326267',
+      repo: 'Blog-Comments',
+      owner: 'Elapsedf',
+      admin: ['Elapsedf'],
+      id: 'f866a758e149a5008851d9fbab5ed5a0',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
