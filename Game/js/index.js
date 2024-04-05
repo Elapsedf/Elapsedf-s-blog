@@ -215,7 +215,7 @@ function startAnimalAnimation(){
       else{
          $animalImg.attr("src", littleWolves[animalIndex]);}
       animalIndex ++;
-   }, 200);
+   }, 334);
    // add the image to the page
    $('.container').append($animalImg);
    // call the game rules
